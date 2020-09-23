@@ -1,0 +1,187 @@
+/* Resources Library */
+/* Search page results*/
+.PublicationBlock{
+	display:block;
+	margin-bottom:10px;
+	border-bottom:solid 1px #c1c1c1;
+}
+.PublicationBlock .PublicationBlockDIV{
+	padding:3px;
+	margin-bottom:3px;
+}
+#resultsContainer ul.content{
+	margin:0;
+}
+.PublicationBlock .Thumbnail{
+	height:150px;
+	float:left;
+	padding-right:5px;
+}
+.PublicationBlock .Details{
+	padding-left:100px;
+}
+.PublicationBlock .Attributes{
+	display:block;
+}
+.PublicationBlock .Description{
+	margin-top: 5px;
+	margin-bottom:5px;
+}
+.PublicationBlock .Padded{
+	padding-left:35px;
+	padding-bottom:4px;
+}
+.PublicationBlock .ToolkitIcon{
+	margin-bottom: 5px;
+}
+.PublicationToolkits{
+	display:none;
+	margin-top: -18px;
+	margin-left: 30px;
+	margin-bottom: 8px;
+}
+
+.FeaturedPublication{
+	background: #FFF8DC;
+}
+
+.filterbutton{
+	font-weight:bold;
+}
+
+.resources-library{
+	min-height:500px;
+}
+.resources-library .FilterNotes{
+	color: #707070;
+}
+.resources-library #newSearchLink{
+	float:right;
+	font-size: 13px;
+}
+.resources-library input[type="radio"], .resources-library input[type="checkbox"] {
+	margin: -2px 0 0 0;
+}
+.resources-library a img{
+	border:none;
+}
+.resources-library .PubDescription{
+	margin-bottom:10px;
+}
+.resources-library .TopicPubs .PubDescription{
+	color:#999;
+	font-size:11px;
+}
+.resources-library .disabledDownload{
+	color:#c1c1c1;
+	cursor:default;
+}
+.resources-library legend {
+	font-size:15px;
+	margin-bottom: 10px;
+	line-height: 30px;
+}
+
+.resources-library .inline{
+	display:inline;
+}
+
+.resources-library .button-download-selected{
+	margin-left:25px;
+}
+
+.resources-library .form-field-row-separator{
+	margin-top:7px;
+}
+.resources-library .results-results{
+	width:690px;
+}
+.resources-library .results-results, .resources-library .results-filters{
+	
+} 
+.resources-library fieldset{
+	margin-bottom:10px;
+}
+
+/*
+ * Responsive design..
+ * 
+ */
+@media (min-width: 768px) and (max-width: 979px) {
+  
+}
+
+@media (max-width: 767px) {
+	.PublicationBlock .Padded{
+		padding-left:0;
+	}
+	.resources-library .results-results {
+		width: auto !important;
+	}
+	.resourcelibrary h1{
+		font-size: 45px !important;	
+	}
+	
+}
+
+@media print {
+
+}
+
+@media (min-width: 1200px) {
+ 
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+ 
+}
+
+@media (max-width: 767px) {
+ 
+}
+
+@media (max-width: 480px) {
+  
+}
+
+@media (max-width: 979px) {
+ 
+}
+
+@media (min-width: 980px) {
+
+}
+
+
+
+#gradDivider {
+    height: 2px;
+    background: -webkit-linear-gradient(    left, #e0e0e0, white); /* For Safari 5.1 to 6.0 */
+    background:      -o-linear-gradient(   right, #e0e0e0, white); /* For Opera 11.1 to 12.0 */
+    background:    -moz-linear-gradient(   right, #e0e0e0, white); /* For Firefox 3.6 to 15 */
+    background:         linear-gradient(to right, #e0e0e0, white); /* Standard syntax (must be last) */
+}
+
+
+.outerGrad {
+  background: -webkit-linear-gradient(#e0e0e0, white); /* For Safari 5.1 to 6.0 */
+  background:      -o-linear-gradient(#e0e0e0, white); /* For Opera 11.1 to 12.0 */
+  background:    -moz-linear-gradient(#e0e0e0, white); /* For Firefox 3.6 to 15 */
+  background:         linear-gradient(#e0e0e0, white); /* Standard syntax */
+  width:20%;   border-radius:5px;
+} 
+.innerGrad {
+  background: -webkit-linear-gradient(white, #e0e0e0 ); /* For Safari 5.1 to 6.0 */
+  background:      -o-linear-gradient(white, #e0e0e0); /* For Opera 11.1 to 12.0 */
+  background:    -moz-linear-gradient(white, #e0e0e0); /* For Firefox 3.6 to 15 */
+  background:         linear-gradient(white, #e0e0e0); /* Standard syntax */
+  width:99%;   border-radius:5px;
+} 
+
+
+
+
+.pubImage{ 	border: 1px solid #FFF;
+	box-shadow:2px 2px 7px #8b95e2;
+	max-width: 153px !important; } 
+

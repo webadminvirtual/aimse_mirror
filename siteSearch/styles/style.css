@@ -1,0 +1,48 @@
+/* overrides */
+#centerheader{
+	display:none;
+}
+
+/* search results */
+.itemNum{
+	margin-left:-30px;
+	float:left;
+}
+
+/* this handles the highlighting of the word they searched on */
+.swHlight { font-weight:bold; font-style:italic; background-color:#dff6e2; }
+
+
+.ResultSummary{
+	margin:10px 0;
+}
+.ResultsSummaryShowing{
+	float:right;
+}
+.SearchResults li{
+	margin-bottom:5px;
+}
+.SearchResults li a{
+	font-weight:bold;
+}
+.SearchPaging{
+	margin-bottom:10px;
+	display:inline-block;
+}
+
+.SearchPaging span, .SearchPaging a{
+	padding: 3px 5px;
+	margin: 2px;
+	text-decoration: none; 
+	font-size: 11px;
+	border: solid 1px #E1E1E1;
+	font-weight: bold; 
+	width:50%;
+}
+
+.resultMeta { 
+				font-size: 11px;
+				font-style: italic;
+				color:gray;
+			}
+

@@ -1,0 +1,146 @@
+$(document).ready(function(){
+
+	//instantiate carousel to run
+	$('.carousel').carousel();
+
+	// Handle the login form in the utility nav bar
+	$( "#nav-login-form" ).submit( function(event){
+		
+		event.preventDefault();
+		
+		var serializedForm = $("#nav-login-form").serialize();
+		
+		$( "#nav-login-form .btn" ).button( "loading" );
+		$( "#nav-login-form input" ).attr( "disabled", "disabled");
+		
+		$.ajax({
+		
+			url:		"/login/jsonLogin.cfm",
+			type: 		"POST",
+			data:		serializedForm,
+			dataType:	"json",
+			success:	function( data ) {
+							if (data.success) {
+								
+								$( ".nav-login-link " ).remove();								
+								$( ".hidden-guest").removeClass("hidden-guest");
+								
+								// redirect to the members area..
+								// this logic will not consider the redirect login logic.
+								window.location.replace("/members/");
+								
+								/*			
+								
+								$( "#logout-button-navbar" ).show();
+								
+								$( "#nav-login-form .btn" ).button( "reset" );
+								$( "#nav-login-form input" ).attr( "disabled", false);
+								*/
+							}
+							else {
+							
+								//alert(data.message);
+								$( "#nav-login-form").prepend('<div class="alert alert-danger">'+data.message+'</div>').children('div.alert').show().fadeOut(2000,function(){$(this).remove();});
+								$( "#nav-login-form .btn" ).button( "reset" );
+								$( "#nav-login-form input" ).attr( "disabled", false);
+								$( "#nav-login-form #nav-login-password" ).val('').focus();
+							}
+						},
+			error:		function(){	
+							console.log("There was an error logging you in.");
+							$( "#nav-login-form .btn" ).button( "reset" );
+								$( "#nav-login-form input" ).attr( "disabled", false);
+						}
+					
+		});
+		
+	});
+
+	// if button has 'data-loading-text' attribute, set to loading
+	$('button').each(function(idx,el){
+
+		if(typeof($(this).attr('data-loading-text')) != 'undefined'){
+			
+			$(this).attr('autocomplete','off').click(function() {
+
+				$(this).button('loading');
+
+				return true;
+
+			});
+		}
+
+	});
+
+	// On submit, validate that each required form input has a value, and show help messages if not (bootstrap 3)
+	// form must have class 'hasValidation' to run
+	$(".container form.hasValidation").submit( function(event){
+	
+		var isValid = true;
+		
+		$(this).find('.required').each(function(id, element){
+
+			var c = $(element).find( ":input" );
+
+			if( typeof(c.val()) != 'undefined' && !c.val().length &&  !(c.is('input[type="radio"]') || c.is('input[type="checkbox"]')) ){
+			
+				$( element ).addClass("has-error");
+				isValid = false;
+			
+			} else if( c.is('input[type="radio"]') ){
+
+				//checks if any in the radio group are selected
+				if(!$('input:radio[name="' + c.attr('name') + '"]').is(":checked")){
+
+					$( element ).addClass("has-error");
+					isValid = false;
+
+				}
+
+			} else if (c.is('input[type="checkbox"]')){		
+
+				if(!c.is(":checked")){
+
+					$( element ).addClass("has-error");
+					isValid = false;
+
+				}
+			
+			} else {
+			
+				$( element ).removeClass("has-error");
+			
+			}
+		
+		});
+		
+		if( !isValid ){
+			$(this).find('button[type="submit"]').button('reset');
+			event.preventDefault();
+		}
+		
+			});
+	
+	// Assign an onBlur event handler for each required form input to remove field help if it is now complete
+	$(".container form.hasValidation .required :input").blur( function(event){
+		
+		if( $( this ).val().length ){
+			
+			$(this).parents('.required').removeClass("has-error");
+			
+		} else {
+
+			$(this).parents('.required').addClass("has-error");
+			
+		}
+
+	});
+
+	//add required 'star' to labels
+	$(".container form.hasValidation .required .control-label").each(function(id, element){
+
+		$(this).append('&nbsp;<b class="text-danger">&lowast;</b>');
+	
+	});
+
+});
